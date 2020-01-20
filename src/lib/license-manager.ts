@@ -88,7 +88,7 @@ export class LicenseManager {
     private insertLicense (fileContents: string, formattedLicense: string, filePath: string) {
         let newText = '';
 
-        if (fileContents.startsWith('#!')) {
+        if (fileContents.startsWith('#!') || fileContents.startsWith('<?') || fileContents.startsWith('<!')) {
             const lines = fileContents.split(/\r?\n/);
 
             newText = lines[0] + EOL + formattedLicense;
